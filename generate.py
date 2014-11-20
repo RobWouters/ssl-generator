@@ -30,6 +30,7 @@ def get_private_key(key_file='./server.key'):
     key_file = os.path.abspath(os.path.realpath(key_file))
     if not os.path.isfile(key_file):
         generate_private_key(key_file)
+        os.chmod(key_file, 0600)
     return key_file
 
 def sign_csr(domain, csr):
